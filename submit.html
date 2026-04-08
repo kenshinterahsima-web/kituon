@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kituon | 体験を投稿する</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <h1 class="logo">Kituon</h1>
+        <nav class="nav">
+          <a class="nav-link" href="./index.html">ヒントを探す</a>
+          <a class="nav-link active" href="./submit.html">体験を投稿する</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page">
+      <section class="intro card">
+        <h2>あなたの体験が、誰かの助けになります</h2>
+        <p>「試して効いた方法」を投稿して、当事者同士で支え合いましょう。</p>
+      </section>
+
+      <section class="card">
+        <h3>体験を投稿する</h3>
+        <form id="tipForm" class="form">
+          <label class="field">
+            <span>場面</span>
+            <select id="situation" name="situation" required>
+              <option value="">選択してください</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>試したこと</span>
+            <textarea
+              id="triedText"
+              name="triedText"
+              rows="5"
+              maxlength="600"
+              placeholder="例：最初の一言を事前に決めてから電話をかけるようにした"
+              required
+            ></textarea>
+          </label>
+
+          <label class="field">
+            <span>効果</span>
+            <select id="effect" name="effect" required>
+              <option value="">選択してください</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>吃音のタイプ</span>
+            <select id="stutterType" name="stutterType" required>
+              <option value="">選択してください</option>
+            </select>
+          </label>
+
+          <button id="submitButton" class="button" type="submit">投稿する</button>
+          <p id="submitMessage" class="status-message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="./js/config.js"></script>
+    <script type="module" src="./js/submit.js"></script>
+  </body>
+</html>
