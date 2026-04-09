@@ -34,6 +34,14 @@ window.GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
 - 各投稿のブックマークで保存（`localStorage`、端末内のみ）／`保存` ページで一覧表示
 - 各投稿に「不適切として通報」ボタンを設置（`tip_reports` テーブルへ保存）
 
+## SEO / クロール最適化メモ
+
+- `index.html` / `submit.html` は canonical / description / robots / OGP を `head` 上部に配置
+- `saved.html` はローカル保存ページのため `noindex`
+- `robots.txt` と `sitemap.xml` でクロール導線を明示
+- HTML本体に巨大なインライン CSS/JS や base64 画像を埋め込まない（2MBカットオフ対策）
+- 重要情報（title, meta description, canonical, 構造化データ）はドキュメント前半に置く
+
 ## 既存環境への反映
 
 すでに `tips` テーブルだけ作成済みの場合は、`supabase/schema.sql` を再実行してください。  
