@@ -1,2 +1,3 @@
 window.SUPABASE_URL = "https://flmdxstvbfqxidxuczts.supabase.co";
 window.SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsbWR4c3R2YmZxeGlkeHVjenRzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2NDIwNDMsImV4cCI6MjA5MTIxODA0M30.LAtZIPMs-5YaazImMV_0FqYTcsl3ftK7kLaPMbrPlcc";
+window.GA_MEASUREMENT_ID = "G-HCNL14L3DV";

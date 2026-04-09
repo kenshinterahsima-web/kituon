@@ -9,6 +9,7 @@ HTML / CSS / JavaScript と Supabase で構成され、Vercel にそのままデ
 - `saved.html`: 保存したヒント（ブックマーク一覧）
 - `submit.html`: 体験を投稿する（フォーム）
 - `js/config.js`: Supabase接続設定
+- `js/analytics.js`: Google Analytics（GA4）設定読み込み
 
 ## セットアップ（Supabase）
 
@@ -19,7 +20,11 @@ HTML / CSS / JavaScript と Supabase で構成され、Vercel にそのままデ
 ```js
 window.SUPABASE_URL = "YOUR_SUPABASE_URL";
 window.SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+window.GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
 ```
+
+`window.GA_MEASUREMENT_ID` に実際の Measurement ID（例: `G-ABCD1234EF`）を設定すると、GA4が有効になります。  
+`G-XXXXXXXXXX` のままなら送信されません。
 
 ## 補足機能
 
