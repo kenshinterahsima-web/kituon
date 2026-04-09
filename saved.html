@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kituon | 保存したヒント</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <h1 class="logo">Kituon</h1>
+        <nav class="nav">
+          <a class="nav-link" href="./index.html">ヒントを探す</a>
+          <a class="nav-link active" href="./saved.html">保存</a>
+          <a class="nav-link" href="./submit.html">体験を投稿する</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page">
+      <section class="intro card">
+        <h2>保存したヒント</h2>
+        <p>
+          一覧のブックマークアイコンで保存できます。この端末のブラウザにのみ保存されます。
+        </p>
+      </section>
+
+      <section class="card">
+        <h3>保存一覧</h3>
+        <p id="savedStatus" class="status-message" aria-live="polite"></p>
+        <div id="savedList" class="tips-list"></div>
+      </section>
+    </main>
+
+    <script src="./js/config.js"></script>
+    <script type="module" src="./js/saved.js"></script>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 import { SITUATIONS, EFFECTS, STUTTER_TYPES } from "./constants.js";
 import { supabase } from "./supabaseClient.js";
+import { createTipCard } from "./tipCard.js";
 
 const $situation = document.getElementById("filterSituation");
 const $type = document.getElementById("filterType");
@@ -27,32 +28,6 @@ function fillSelect(selectEl, values) {
     option.textContent = value;
     selectEl.append(option);
   });
-}
-
-function createTipCard(tip) {
-  const item = document.createElement("article");
-  item.className = "tip-item";
-
-  const meta = document.createElement("div");
-  meta.className = "tip-meta";
-  meta.innerHTML = `
-    <span class="tag">${tip.situation}</span>
-    <span class="tag">${tip.stutter_type}</span>
-    <span class="tag">${tip.effect}</span>
-  `;
-
-  const text = document.createElement("p");
-  text.className = "tip-text";
-  text.textContent = tip.tried_text;
-
-  const reportButton = document.createElement("button");
-  reportButton.className = "button button-danger tip-report-button";
-  reportButton.type = "button";
-  reportButton.textContent = "不適切として通報";
-  reportButton.addEventListener("click", () => reportTip(tip.id, reportButton));
-
-  item.append(meta, text, reportButton);
-  return item;
 }
 
 function getFilteredSortedTips() {
@@ -86,7 +61,11 @@ function renderTips() {
   }
 
   setStatus(`${sorted.length}件中 ${start + 1}-${start + pageItems.length}件を表示`);
-  pageItems.forEach((tip) => $tipsList.append(createTipCard(tip)));
+  pageItems.forEach((tip) =>
+    $tipsList.append(
+      createTipCard(tip, { setStatus, supabase, listContext: "list" })
+    )
+  );
   updatePagination(currentPage, totalPages);
 }
 
@@ -136,24 +115,6 @@ function updatePagination(page, totalPages) {
   $pageInfo.textContent = `${page} / ${totalPages}`;
   $prevPage.disabled = page <= 1;
   $nextPage.disabled = page >= totalPages;
-}
-
-async function reportTip(tipId, buttonEl) {
-  const ok = window.confirm("この投稿を不適切として通報しますか？");
-  if (!ok) return;
-
-  buttonEl.disabled = true;
-  buttonEl.textContent = "通報中...";
-  const { error } = await supabase.from("tip_reports").insert({ tip_id: tipId });
-
-  if (error) {
-    setStatus("通報に失敗しました。時間をおいて再度お試しください。");
-    buttonEl.disabled = false;
-    buttonEl.textContent = "不適切として通報";
-    return;
-  }
-
-  buttonEl.textContent = "通報済み";
 }
 
 function init() {

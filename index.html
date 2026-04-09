@@ -12,20 +12,14 @@
         <h1 class="logo">Kituon</h1>
         <nav class="nav">
           <a class="nav-link active" href="./index.html">ヒントを探す</a>
+          <a class="nav-link" href="./saved.html">保存</a>
           <a class="nav-link" href="./submit.html">体験を投稿する</a>
         </nav>
       </div>
     </header>
 
-    <main class="container page">
-      <section class="intro card">
-        <h2>当事者の「効いた工夫」をすぐ探せる場所</h2>
-        <p>
-          場面・吃音タイプ・効果で絞り込み、今すぐ試せるヒントを見つけましょう。
-        </p>
-      </section>
-
-      <section class="card">
+    <main class="container page page--home">
+      <section class="card card--filters">
         <h3>絞り込み</h3>
         <div class="filters">
           <label class="field">
@@ -57,7 +51,7 @@
         </div>
       </section>
 
-      <section class="card">
+      <section class="card card--main" id="tips">
         <div class="list-header">
           <h3>投稿一覧</h3>
           <button id="reloadButton" class="button button-secondary" type="button">
